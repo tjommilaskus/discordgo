@@ -9,29 +9,6 @@ import (
 	"openai"
 )
 
-openai.api_key = "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"
-
-client.event
-async def on_message(message):
-    # only respond to messages that start with the prefix "!gpt"
-    if message.content.startswith("!gpt"):
-        # get the user's message without the prefix
-        prompt = message.content[4:]
-
-        # generate a response from ChatGPT
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            temperature=0.5,
-            max_tokens=1024,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-
-        # send the response to the channel
-        await message.channel.send(response["choices"][0]["text"])
-
 func main() {
 	// Create a new session using the DISCORD_TOKEN environment variable from Railway
 	dg, err := discordgo.New("Bot " + os.Getenv("DISCORD_TOKEN"))
